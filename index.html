@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShop | Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login Section -->
+  <div id="login-section">
+    <h2>Set Credentials</h2>
+    <input type="text" id="set-username" placeholder="Set your username" />
+    <input type="password" id="set-password" placeholder="Set your password" />
+    <input type="email" id="set-email" placeholder="Set your email" />
+    <input type="tel" id="set-phone" placeholder="Set your phone number" />
+    <button onclick="setCredentials()">Save & Continue</button>
+    <p id="set-error"></p>
+  </div>
+
+  <!-- Actual Login Section -->
+  <div id="actual-login" style="display: none">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="login-error"></p>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display: none">
+    <header>
+      <h1>MyShop</h1>
+      <input type="text" id="searchBar" placeholder="Search products..." onkeyup="searchProducts()" />
+      <button onclick="toggleSidebar()" class="profile-btn">Profile</button>
+    </header>
+
+    <!-- Categories -->
+    <nav>
+      <button onclick="filterCategory('all')">All</button>
+      <button onclick="filterCategory('men')">Men</button>
+      <button onclick="filterCategory('women')">Women</button>
+      <button onclick="filterCategory('electronics')">Electronics</button>
+    </nav>
+
+    <!-- Sorting -->
+    <div class="sort-filter">
+      <label for="sort">Sort by price:</label>
+      <select id="sort" onchange="sortProducts(this.value)">
+        <option value="default">Default</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+      </select>
+    </div>
+
+    <!-- Product List -->
+    <div id="product-list" class="grid"></div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 MyShop | Phone: +1-234-567-8901 | Email: support@myshop.com</p>
+    </footer>
+  </div>
+
+  <!-- Profile Sidebar -->
+  <aside id="profile-page" class="sidebar" style="display: none">
+    <div class="sidebar-header">
+      <h2>Your Profile</h2>
+      <button onclick="goToHome()" class="profile-btn">Close</button>
+    </div>
+    <section class="profile-details">
+      <h2>Username: <span id="profile-username"></span></h2>
+      <h2>Email: <span id="profile-email"></span></h2>
+      <h2>Phone: <span id="profile-phone"></span></h2>
+      <h2>Password: <span id="profile-password"></span></h2>
+      <h3>Your Wishlist</h3>
+      <div id="wishlist" class="grid"></div>
+    </section>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
